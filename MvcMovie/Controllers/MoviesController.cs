@@ -29,7 +29,7 @@ namespace MvcMovie.Controllers
             //                                 orderby m.Genre
             //                                 select m.Genre;
 
-            var genres = _context.Movie.OrderBy(m => m.Genre).Select(m => m.Genre).Distinct();
+            var genres = await _context.Movie.OrderBy(m => m.Genre).Select(m => m.Genre).Distinct().ToListAsync();
 
             var movies = from m in _context.Movie
                          select m;
